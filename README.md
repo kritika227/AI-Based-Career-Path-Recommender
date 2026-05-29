@@ -1,17 +1,17 @@
-#AI Based Career Path Recommender
+# AI Based Career Path Recommender
 
-##Overview
+## Overview
 
 This project helps users choose suitable career paths based on their interests and skills.
 
-##Technologies Used
+# Technologies Used
 
 - HTML
 - CSS
 - JavaScript
 - Firebase
 
-Features
+# Features
 
 - Login & Registration
 - Career Recommendation
