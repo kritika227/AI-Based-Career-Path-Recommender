@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Register</title>
+<style>
+  body { font-family: Arial; padding: 20px; background: #e6f4ff; }
+  h2 { text-align: center; color: #0288d1; }
+  input, button { display: block; width: 100%; max-width: 400px; margin: 10px auto; padding: 10px; font-size: 16px; }
+  button { cursor: pointer; background-color: #0288d1; color: white; border: none; border-radius: 5px; }
+  #errorMsg { color: red; text-align: center; margin-top: 10px; }
+</style>
+</head>
+<body>
+
+<h2>Register</h2>
+
+<input type="text" id="name" placeholder="Full Name" autocomplete="name">
+<input type="email" id="email" placeholder="Email" autocomplete="email">
+<input type="password" id="password" placeholder="Password" autocomplete="new-password">
+<button id="registerBtn">Register</button>
+<div id="errorMsg"></div>
+
+<script type="module" src="register.js"></script>
+</body>
+</html>

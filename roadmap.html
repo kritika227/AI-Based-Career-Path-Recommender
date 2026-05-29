@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Career Roadmaps</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #e6f4ff;
+      padding: 20px;
+    }
+
+    h1 {
+      text-align: center;
+      color: #0288d1;
+    }
+
+    h2 {
+      color: #0b5394;
+      margin-top: 30px;
+      text-align: center;
+    }
+
+    ol {
+      max-width: 750px;
+      margin: 10px auto 30px auto;
+      padding-left: 20px;
+      background: #ffffff;
+      border-radius: 8px;
+      padding: 20px;
+    }
+
+    li {
+      display: flex;
+      align-items: center;
+      margin-bottom: 12px;
+      line-height: 1.6;
+    }
+
+    .step-icon {
+      width: 30px;
+      height: 30px;
+      margin-right: 10px;
+      vertical-align: middle;
+    }
+
+    p {
+      text-align: center;
+      font-size: 16px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <h1>Career Roadmaps</h1>
+
+<div id="dropdownContainer">
+  <label for="careerSelect"><b>Select a Career:</b></label>
+  <br><br>
+<select id="careerSelect">
+  <option value="">-- Select Career --</option>
+  <option value="Software Engineer">Software Engineer</option>
+  <option value="Data Scientist">Data Scientist</option>
+  <option value="Mechanical Engineer">Mechanical Engineer</option>
+  <option value="Civil Engineer">Civil Engineer</option>
+  <option value="Entrepreneur">Entrepreneur</option>
+  <option value="Teacher">Teacher</option>
+  <option value="Doctor">Doctor</option>
+  <option value="Lawyer">Lawyer</option>
+  <option value="Graphic Designer">Graphic Designer</option>
+  <option value="Digital Marketer">Digital Marketer</option>
+</select>
+</div>
+
+<br><br>
+
+<div id="roadmapContent"></div>
+
+<script src="roadmap.js"></script>
+</body>
+</html>

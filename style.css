@@ -1,0 +1,73 @@
+body { font-family: Arial; margin: 20px; text-align: center;background-color: skyblue; }
+h1,h2 { font-weight:bold;color: #333; }
+.careerList div { border:1px solid #ccc; margin:10px auto; padding:10px; width:70%; border-radius:5px; text-align:left; }
+.question { margin: 15px 0; }
+select, button, input { padding: 8px; margin-top: 5px; }
+table { width: 90%; margin: 20px auto; border-collapse: collapse; }
+th, td { padding: 10px; text-align: center; }
+button.deleteBtn { background-color: red; color: blue; border: none; padding: 5px 10px; cursor: pointer; }
+.careerList div { 
+    border: 1px solid #ccc; 
+    margin: 10px auto; 
+    padding: 20px; 
+    width: 100%; 
+    border-radius: 5px; 
+    text-align: left; 
+    background-color: white;   /* box background stays white */
+}
+table { 
+    width: 90%; 
+    margin: 20px auto; 
+    border-collapse: collapse; 
+    background-color: white;   /* table background white */
+}
+
+/* Table cells */
+th, td { 
+    padding: 10px; 
+    text-align: center; 
+    border: 1px solid #ccc;   /* optional: add border so table stands out */
+}
+
+/* Delete button */
+button.deleteBtn { 
+    background-color: red; 
+    color: blue; 
+    border: none; 
+    padding: 5px 10px; 
+    cursor: pointer; 
+}
+.question {
+    font-weight: bold;
+    margin: 15px 0;  /* keeps your spacing consistent */
+}
+/* Make user input (name and email) bold */
+input[type="text"], input[type="email"] {
+    font-weight: bold;
+}
+button, input[type="submit"] {
+    font-weight: bold;
+}
+.career-card {
+  background: #ffffff;
+  width: 100%;       /* change from 100px to 100% */
+  max-width: 100%;   /* remove the 100px limit */
+  padding: 20px;     /* optional: increase padding for better look */
+  border-radius: 12px;
+  margin: 0 auto;    /* center it horizontally */
+  text-align: left;  /* keeps headings on new line */
+}
+
+.career-card h2 {
+  text-align: center;
+}
+
+.career-card strong {
+  display: block; /* forces heading on new line */
+  margin-top: 12px;
+  margin-bottom: 6-8px;
+  font-size: 16px;
+}
+.career-card p {
+  margin: 0 0 10px 0;
+}

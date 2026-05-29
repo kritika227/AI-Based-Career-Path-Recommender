@@ -1,0 +1,643 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AI-Based Career Path Recommender</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" type="image/png" href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABAAAAAQCAMAAAAoLQ9TAAAAllBMVEUAAAD///+qqqr09PTy8vLZ2dnR0dHe3t7f39/W1tbc3Nzd3d3i4uLb29vT09OTk5Odnp6+vr7Pz8+bm5u7u7vDw8Pb29tISEhSUlKeHh6Hh4f19fW8vLyyMjL8/Pzg4ODU1NSNjY3c3NwRERF3d3dUVFTv7++SkpIPDw/ExMSJiYng4OB/f38qKipzc3MF5L35AAAAL3RSTlMAEBAgIDAwMEBAYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgYGBgAAABvSURBVBjTY2BgZGJiYmBgYmJkYGBkYmJkZGRkYGBgYmRkYGBkZGRgYmBhZGRkYGBkYGJkZGRkYGBkZGRgYmJhZGRgYGBgYGBgYmBiZGRgYmJkYGJkZGBgYGBgYGBgYGBgYmJkYGBgYGJkZGRgYGBkYmJgAAAXcAfQ6lC4/AAAAAElFTkSuQmCC">
+  
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, sans-serif;
+      background: #e6f4ff;
+      padding: 20px;
+    }
+
+    h1, h2 {
+      text-align: center;
+      font-weight: bold;
+    }
+
+    .careerList {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 20px;
+      display: flex;
+      flex-direction: column;
+      gap: 20px;
+    }
+
+    .career-card {
+      background: #ffffff;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.08);
+      width: 100%;
+    }
+
+    .career-card h3 {
+      text-align: center;
+      margin-top: 0;
+      color: #0b5394;
+    }
+
+    .career-card p {
+      margin: 10px 0;
+      line-height: 1.6;
+    }
+
+    .career-card strong {
+      display: block;
+      margin-bottom: 4px;
+      color: #333;
+    }
+
+    .question {
+      margin-bottom: 15px;
+    }
+
+    select, input {
+      padding: 5px;
+      width: 220px;
+      margin-top: 5px;
+    }
+
+    #recommendBtn, #resetBtn, #logoutBtn {
+      padding: 8px 15px;
+      margin: 10px 5px 10px 0;
+      cursor: pointer;
+      border: none;
+      border-radius: 5px;
+      color: white;
+    }
+
+    #recommendBtn { background: #0288d1; }
+    #resetBtn { background: #f57c00; }
+    #logoutBtn { background: #d32f2f; }
+
+    #resultCard {
+      margin-top: 20px;
+      padding: 15px;
+      border-radius: 10px;
+      background: #ffffff;
+      box-shadow: 0 2px 8px rgba(0,0,0,0.2);
+      max-width: 600px;
+    }
+
+    #resultCard h3 {
+      margin-top: 0;
+      color: #0288d1;
+    }
+
+    #resultCard p {
+      margin: 5px 0;
+    }
+  </style>
+</head>
+<body>
+  <h1>AI-Based Career Path Recommender</h1>
+
+  <!-- Career Information Section -->
+  <div class="careerList">
+    <!-- Example: Software Engineer -->
+    <div class="career-card">
+      <h3>Software Engineer</h3>
+      <p>Software Engineers design, develop, test, and maintain computer software and applications.</p>
+      <p><strong>Roles and Responsibilities</strong> Writing clean code, debugging applications, collaborating with teams, and maintaining software systems.</p>
+      <p><strong>Required Skills</strong> Programming languages, problem-solving, algorithms, data structures, teamwork.</p>
+      <p><strong>Educational Requirements</strong> Bachelor’s degree in Computer Science or related field.</p>
+      <p><strong>Career Growth Path</strong> Junior Developer → Senior Engineer → Tech Lead → Architect.</p>
+      <p><strong>Salary and Industry Demand</strong> High demand with competitive salaries globally.</p>
+      <p><strong>Relevance in AI-Based Career Path Recommender</strong> AI assesses coding aptitude and logical skills to recommend this career.</p>
+    </div>
+    <!-- MECHANICAL ENGINEER -->
+<div class="career-card">
+  <h3>Mechanical Engineer</h3>
+  <p>Mechanical Engineers design and manufacture mechanical systems and machines.</p>
+
+  <p><strong>Roles and Responsibilities</strong>
+  Designing components, testing prototypes, and improving mechanical systems.</p>
+
+  <p><strong>Required Skills</strong>
+  CAD tools, analytical thinking, physics, problem-solving.</p>
+
+  <p><strong>Educational Requirements</strong>
+  Bachelor’s degree in Mechanical Engineering.</p>
+
+  <p><strong>Career Growth Path</strong>
+  Trainee Engineer → Senior Engineer → Project Manager.</p>
+
+  <p><strong>Salary and Industry Demand</strong>
+  Stable demand in manufacturing, automotive, and aerospace industries.</p>
+
+  <p><strong>Relevance in AI-Based Career Path Recommender</strong>
+  AI evaluates technical aptitude and interest in mechanics.</p>
+</div>
+
+<!-- CIVIL ENGINEER -->
+<div class="career-card">
+  <h3>Civil Engineer</h3>
+  <p>Civil Engineers plan, design, and oversee construction projects.</p>
+
+  <p><strong>Roles and Responsibilities</strong>
+  Site supervision, structural design, project planning.</p>
+
+  <p><strong>Required Skills</strong>
+  Structural analysis, project management, communication.</p>
+
+  <p><strong>Educational Requirements</strong>
+  Bachelor’s degree in Civil Engineering.</p>
+
+  <p><strong>Career Growth Path</strong>
+  Site Engineer → Senior Engineer → Construction Manager.</p>
+
+  <p><strong>Salary and Industry Demand</strong>
+  Consistent demand in infrastructure and real estate.</p>
+
+  <p><strong>Relevance in AI-Based Career Path Recommender</strong>
+  AI maps planning skills and interest in construction.</p>
+</div>
+
+<!-- DIGITAL MARKETER -->
+<div class="career-card">
+  <h3>Digital Marketer</h3>
+  <p>Digital Marketers promote products and services through online platforms.</p>
+
+  <p><strong>Roles and Responsibilities</strong>
+  Managing social media, SEO, paid ads, and analytics.</p>
+
+  <p><strong>Required Skills</strong>
+  SEO/SEM, content creation, analytics tools.</p>
+
+  <p><strong>Educational Requirements</strong>
+  Degree or certification in marketing or digital media.</p>
+
+  <p><strong>Career Growth Path</strong>
+  Executive → Manager → Digital Marketing Head.</p>
+
+  <p><strong>Salary and Industry Demand</strong>
+  Rapidly growing demand across all industries.</p>
+
+  <p><strong>Relevance in AI-Based Career Path Recommender</strong>
+  AI evaluates creativity, analytics, and communication skills.</p>
+</div>
+
+<!-- ENTREPRENEUR -->
+<div class="career-card">
+  <h3>Entrepreneur</h3>
+  <p>Entrepreneurs start and manage businesses to solve real-world problems.</p>
+
+  <p><strong>Roles and Responsibilities</strong>
+  Business planning, decision-making, risk management.</p>
+
+  <p><strong>Required Skills</strong>
+  Leadership, innovation, financial planning.</p>
+
+  <p><strong>Educational Requirements</strong>
+  No fixed requirement; business or management knowledge helps.</p>
+
+  <p><strong>Career Growth Path</strong>
+  Startup Founder → Business Owner → Industry Leader.</p>
+
+  <p><strong>Salary and Industry Demand</strong>
+  Income varies; high potential growth.</p>
+
+  <p><strong>Relevance in AI-Based Career Path Recommender</strong>
+  AI identifies leadership traits and risk-taking ability.</p>
+</div>
+<div class="career-card">
+  <h3>Teacher</h3>
+  <p>
+    Educate and guide students. Prepare lesson plans. Assess progress. Motivate learners. Requires communication skills and patience to inspire students.
+    A Teacher is a professional responsible for educating students, developing their knowledge, skills, and overall personality. Teachers play a vital role in shaping the future of society by guiding learners academically, socially, and ethically. They work in schools, colleges, coaching institutes, and online education platforms across various disciplines.
+  </p>
+  <p><strong>Roles and Responsibilities</strong><br>
+    Plan lessons, deliver lectures, explain concepts, prepare assignments, assess students, maintain discipline, mentor learners, and communicate with parents.
+  </p>
+  <p><strong>Required Skills</strong><br>
+    Strong communication, presentation, subject knowledge, patience, classroom management, problem-solving, interpersonal skills, and adaptability to digital tools.
+  </p>
+  <p><strong>Educational Requirements</strong><br>
+    Bachelor’s degree in relevant subject. School teachers often require B.Ed., college/university lecturers need postgraduate degree + NET/Ph.D. Online teaching certifications help.
+  </p>
+  <p><strong>Career Growth Path</strong><br>
+    Assistant Teacher → Senior Teacher → Head of Department → Academic Coordinator → Vice Principal/Principal → Academic Director.
+  </p>
+  <p><strong>Salary and Industry Demand</strong><br>
+    Stable salaries, increasing with experience and qualifications. Demand is steady due to growing education sector and online learning platforms.
+  </p>
+  <p><strong>Relevance in AI-Based Career Path Recommender</strong><br>
+    Recommended for users with strong communication, teaching skills, patience, and interest in education.
+  </p>
+</div>
+<div class="career-card">
+  <h3>Doctor</h3>
+  <p>
+    Diagnose and treat patients. Prescribe medication. Conduct procedures. Ensure patient care. Requires dedication and medical knowledge.
+    A Doctor is a medical professional responsible for diagnosing, treating, and preventing illnesses to improve patient health and well-being. They work in hospitals, clinics, research centers, and private practices across various specialties.
+  </p>
+  <p><strong>Roles and Responsibilities</strong><br>
+    Examine patients, diagnose conditions, prescribe treatments, perform procedures, interpret tests, provide preventive care, maintain records, and collaborate with healthcare teams.
+  </p>
+  <p><strong>Required Skills</strong><br>
+    Clinical knowledge, decision-making, critical thinking, attention to detail, problem-solving, empathy, communication, patience, and ability to work under pressure.
+  </p>
+  <p><strong>Educational Requirements</strong><br>
+    MBBS degree + internship. Postgraduate specialization (MD/MS) in specific fields. Continuous medical education to stay updated.
+  </p>
+  <p><strong>Career Growth Path</strong><br>
+    Junior Doctor → Resident → Consultant/Specialist → Surgeon → Academic/Research/Hospital Administration.
+  </p>
+  <p><strong>Salary and Industry Demand</strong><br>
+    Competitive salaries, increasing with experience and specialization. High demand due to population growth and healthcare needs.
+  </p>
+  <p><strong>Relevance in AI-Based Career Path Recommender</strong><br>
+    Recommended for users with strong science background, empathy, problem-solving skills, and interest in healthcare.
+  </p>
+</div>
+<div class="career-card">
+  <h3>Lawyer</h3>
+  <p>
+    Provide legal advice. Represent clients. Draft documents. Analyze laws and cases. Strong reasoning and communication skills are essential.
+    A Lawyer is a legal professional who provides advice, representation, and advocacy on legal matters. They work in courts, law firms, corporate organizations, and public institutions.
+  </p>
+  <p><strong>Roles and Responsibilities</strong><br>
+    Provide legal advice, draft documents, represent clients, conduct research, prepare case arguments, handle negotiations, dispute resolution, and compliance matters.
+  </p>
+  <p><strong>Required Skills</strong><br>
+    Analytical thinking, logical reasoning, communication, argumentation, research, attention to detail, negotiation, ethical judgment, and ability to work under pressure.
+  </p>
+  <p><strong>Educational Requirements</strong><br>
+    LLB degree (3-year after graduation or 5-year integrated). Bar Council examination to practice. Optional specializations/certifications.
+  </p>
+  <p><strong>Career Growth Path</strong><br>
+    Junior Advocate → Senior Advocate → Legal Advisor/Partner → Judge → Legal Consultant/Corporate Counsel/Public Prosecutor.
+  </p>
+  <p><strong>Salary and Industry Demand</strong><br>
+    Variable salaries; income grows with experience, expertise, and reputation. Steady demand due to ongoing legal and corporate needs.
+  </p>
+  <p><strong>Relevance in AI-Based Career Path Recommender</strong><br>
+    Recommended for users with interest in law, justice, analytical thinking, and strong communication.
+  </p>
+</div>
+<div class="career-card">
+  <h3>Graphic Designer</h3>
+  <p>
+    Create visual content. Work with Photoshop, Illustrator. Focus on branding, marketing, and creativity. Understand color, typography, and design principles. Innovate designs for clients.
+    A Graphic Designer is a creative professional who communicates ideas through visual content. They design digital and print materials, ensuring effective messaging and visual appeal across industries like media, IT, e-commerce, and advertising.
+  </p>
+  <p><strong>Roles and Responsibilities</strong><br>
+    Design logos, posters, brochures, banners, and social media content. Collaborate with clients and marketing teams to understand design needs. Ensure brand consistency, revise designs based on feedback, and sometimes design UI for websites or apps.
+  </p>
+  <p><strong>Required Skills</strong><br>
+    Strong creativity and visual thinking. Proficiency in Adobe Photoshop, Illustrator, InDesign, or Canva. Knowledge of typography, color theory, layout, and basic UI principles. Attention to detail, communication, and time management skills are essential.
+  </p>
+  <p><strong>Educational Requirements</strong><br>
+    Degree in Graphic Design, Visual Communication, or Fine Arts is helpful but not mandatory. Many designers succeed via diploma courses, certifications, or self-learning. A strong portfolio is more important than formal qualifications.
+  </p>
+  <p><strong>Career Growth Path</strong><br>
+    Junior Graphic Designer → Graphic Designer → Senior Designer → Art Director. Specialization in UI/UX, Branding, or Creative Direction is possible. Freelancing and entrepreneurship are also common paths.
+  </p>
+  <p><strong>Salary and Industry Demand</strong><br>
+    Competitive salaries depending on experience, skills, and industry. Growing demand due to digital marketing, social media, and online businesses.
+  </p>
+  <p><strong>Relevance in AI-Based Career Path Recommender</strong><br>
+    Recommended for users with strong creativity, visual skills, and interest in design or digital media. The system evaluates user preferences, technical skills, and creative aptitude to suggest graphic design as a career path.
+  </p>
+</div>
+<div class="career-card">
+  <h3>Data Scientist</h3>
+  <p>
+    Analyze data to extract insights. Work with AI/ML models. Visualize trends. Support business decisions. Strong programming and statistical skills.
+    A Data Scientist is a professional who analyzes large volumes of structured and unstructured data to extract meaningful insights that support decision-making. By combining statistics, programming, and machine learning techniques, data scientists help organizations identify patterns, predict trends, and optimize business processes across industries such as healthcare, finance, e-commerce, and technology.
+  </p>
+  <p><strong>Roles and Responsibilities</strong><br>
+    Collect and clean data from multiple sources, perform exploratory data analysis, and build predictive models using machine learning algorithms. Visualize data to communicate insights to stakeholders. Evaluate model performance and deploy data-driven solutions.
+  </p>
+  <p><strong>Required Skills</strong><br>
+    Strong analytical and mathematical skills. Proficiency in Python or R. Knowledge of statistics, probability, and machine learning algorithms. Familiarity with data visualization tools, databases, and big data technologies. Critical thinking, problem-solving, and communication skills.
+  </p>
+  <p><strong>Educational Requirements</strong><br>
+    Bachelor's degree in Information Technology, Computer Science, Statistics, or a related field. Certifications or postgraduate studies in data science, machine learning, or AI are beneficial. Practical experience with datasets is highly valued.
+  </p>
+  <p><strong>Career Growth Path</strong><br>
+    Starts as a Junior Data Analyst or Data Scientist, progresses to Senior Data Scientist. Specializations include Machine Learning Engineer, Data Architect, Data Science Manager, or Chief Data Officer.
+  </p>
+  <p><strong>Salary and Industry Demand</strong><br>
+    High earning potential with growth based on experience and specialization. Strong demand due to the rise of data-driven decision-making across sectors.
+  </p>
+  <p><strong>Relevance in AI-Based Career Path Recommender</strong><br>
+    Recommended for users with strong analytical abilities, interest in data analysis, statistics, and problem-solving. System evaluates user skills and aptitude to suggest data science as a suitable and future-oriented career path.
+  </p>
+</div>
+
+    <!-- Repeat similar career-card blocks for Mechanical, Civil, Digital Marketer, Entrepreneur, Teacher, Doctor, Lawyer, Graphic Designer, Data Scientist -->
+    <!-- I will preserve all your career info as in your original code (omitted here for brevity, but in your final file copy all original blocks) -->
+  </div>
+
+  <!-- Career Quiz Form -->
+  <section id="careerQuiz">
+    <h2>Take the Career Quiz</h2>
+    <form id="careerForm">
+      
+      <!-- Questions Q1–Q10 -->
+      <div class="question">
+        <label for="q1">1. Preferred environment?</label>
+        <select id="q1" name="q1" required>
+          <option value="">Select</option>
+          <option value="tech">Tech</option>
+          <option value="business">Business</option>
+          <option value="creative">Creative</option>
+          <option value="helping">Helping</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q2">2. Problem-solving ability?</label>
+        <select id="q2" name="q2" required>
+          <option value="">Select</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q3">3. Like working with numbers?</label>
+        <select id="q3" name="q3" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q4">4. Enjoy designing/creating?</label>
+        <select id="q4" name="q4" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q5">5. Prefer working outdoors?</label>
+        <select id="q5" name="q5" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q6">6. Communication skills?</label>
+        <select id="q6" name="q6" required>
+          <option value="">Select</option>
+          <option value="high">High</option>
+          <option value="medium">Medium</option>
+          <option value="low">Low</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q7">7. Enjoy helping others?</label>
+        <select id="q7" name="q7" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q8">8. Leadership skills?</label>
+        <select id="q8" name="q8" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q9">9. Enjoy research?</label>
+        <select id="q9" name="q9" required>
+          <option value="">Select</option>
+          <option value="yes">Yes</option>
+          <option value="no">No</option>
+        </select>
+      </div>
+
+      <div class="question">
+        <label for="q10">10. Prefer structured or flexible tasks?</label>
+        <select id="q10" name="q10" required>
+          <option value="">Select</option>
+          <option value="structured">Structured</option>
+          <option value="flexible">Flexible</option>
+        </select>
+      </div>
+
+      <button type="button" id="recommendBtn">Get Recommendation</button>
+      <button type="button" id="resetBtn">Try Again</button>
+    </form>
+
+    <!-- Result Card -->
+    <div id="resultCard" style="display:none;">
+  <h3>Top 3 Career Matches</h3>
+  <div id="careerResults"></div>
+</div>
+<button id="viewRoadmapBtn" style="display:none;">View Career Roadmaps</button>
+<button id="viewAllRoadmapBtn">View All Career Roadmaps</button>
+<br> <br>
+
+
+    <!-- Logout & Profile -->
+    <button id="logoutBtn">Logout</button>
+<button onclick="window.location.href='profile.html'">My Profile</button>
+<button onclick="window.location.href='compare.html'">
+  Compare Careers
+</button>
+
+<script type="module">
+import { auth, database } from './firebase.js';
+import { ref, update } from "https://www.gstatic.com/firebasejs/10.7.1/firebase-database.js";
+
+document.addEventListener("DOMContentLoaded", () => {
+  const btn = document.getElementById("recommendBtn");
+  const resetBtn = document.getElementById("resetBtn");
+  const resultCard = document.getElementById("resultCard");
+  const careerResultsDiv = document.getElementById("careerResults");
+  const logoutBtn = document.getElementById("logoutBtn");
+  const roadmapBtn = document.getElementById("viewRoadmapBtn"); // Added button
+  const allBtn = document.getElementById("viewAllRoadmapBtn");
+
+  // Professional explanations
+  const careerExplanation = {
+    "Software Engineer": "Recommended due to strong logical thinking, problem-solving ability, and interest in technology-driven solutions.",
+    "Mechanical Engineer": "Suitable for candidates with analytical skills and interest in mechanical systems and engineering design.",
+    "Civil Engineer": "Matches users interested in construction, planning, and real-world infrastructure development.",
+    "Digital Marketer": "Recommended for creative individuals with communication skills and interest in online marketing strategies.",
+    "Entrepreneur": "Best suited for leadership-oriented users with business mindset and risk-taking ability.",
+    "Teacher": "Ideal for users with strong communication skills and passion for guiding and educating others.",
+    "Doctor": "Recommended based on empathy, scientific interest, and dedication to healthcare services.",
+    "Lawyer": "Suitable for users with logical reasoning, analytical skills, and interest in law and justice.",
+    "Graphic Designer": "Recommended due to creativity, visual thinking, and interest in design and digital media.",
+    "Data Scientist": "Best suited for analytical minds interested in data analysis, research, and AI-based decision making."
+  };
+
+  btn.addEventListener("click", async () => {
+    const user = auth.currentUser;
+    if (!user) {
+      alert("Please login first!");
+      return;
+    }
+
+    // Get all quiz answers
+    const q1 = document.getElementById("q1").value;
+    const q2 = document.getElementById("q2").value;
+    const q3 = document.getElementById("q3").value;
+    const q4 = document.getElementById("q4").value;
+    const q5 = document.getElementById("q5").value;
+    const q6 = document.getElementById("q6").value;
+    const q7 = document.getElementById("q7").value;
+    const q8 = document.getElementById("q8").value;
+    const q9 = document.getElementById("q9").value;
+    const q10 = document.getElementById("q10").value;
+
+    // Validation
+    const answers = [q1,q2,q3,q4,q5,q6,q7,q8,q9,q10];
+    if (answers.some(a => a === "")) {
+      alert("Please answer all questions.");
+      return;
+    }
+
+    // -----------------------------
+    // SCORING LOGIC
+    // -----------------------------
+    let scores = {
+      "Software Engineer": (q1 === "tech" ? 30 : 0) + (q2 === "high" ? 30 : 0) + (q3 === "yes" ? 20 : 0),
+      "Data Scientist": (q1 === "tech" ? 20 : 0) + (q2 === "high" ? 20 : 0) + (q3 === "yes" ? 20 : 0) + (q9 === "yes" ? 20 : 0),
+      "Graphic Designer": (q1 === "creative" ? 30 : 0) + (q4 === "yes" ? 30 : 0),
+      "Digital Marketer": (q1 === "business" ? 20 : 0) + (q6 === "high" ? 20 : 0) + (q4 === "yes" ? 10 : 0),
+      "Entrepreneur": (q1 === "business" ? 20 : 0) + (q8 === "yes" ? 30 : 0) + (q6 === "high" ? 10 : 0),
+      "Teacher": (q7 === "yes" ? 30 : 0) + (q6 === "high" ? 20 : 0) + (q10 === "flexible" ? 10 : 0),
+      "Doctor": (q7 === "yes" ? 20 : 0) + (q3 === "yes" ? 20 : 0) + (q2 === "high" ? 20 : 0),
+      "Lawyer": (q1 === "business" ? 20 : 0) + (q6 === "high" ? 20 : 0) + (q2 === "high" ? 10 : 0),
+      "Mechanical Engineer": (q1 === "tech" ? 20 : 0) + (q5 === "yes" ? 20 : 0),
+      "Civil Engineer": (q1 === "tech" ? 20 : 0) + (q5 === "yes" ? 20 : 0)
+    };
+
+    // -----------------------------
+    // CREATIVE FIELD DOCTOR ADJUSTMENT
+    // -----------------------------
+    if (q1 === "creative") {
+      scores["Doctor"] = 5; // Doctor comes in red
+      // Alternatively, you can delete scores["Doctor"] if you don't want it at all
+    }
+
+    // -----------------------------
+    // THRESHOLD CHECK
+    // -----------------------------
+    const maxScore = Math.max(...Object.values(scores));
+    if (maxScore < 40) {
+      careerResultsDiv.innerHTML = `
+        <p style="color:red; font-weight:bold;">No strong career match found.</p>
+        <p>Your responses indicate low interest or skill alignment across all categories. Please retake the assessment or focus on skill development.</p>
+      `;
+      resultCard.style.display = "block";
+      roadmapBtn.style.display = "none"; // Hide roadmap button
+      return;
+    }
+
+    // -----------------------------
+    // TOP 3 CAREERS
+    // -----------------------------
+    const top3 = Object.entries(scores)
+      .map(([name, percent]) => ({ name, percent }))
+      .sort((a,b) => b.percent - a.percent)
+      .slice(0,3);
+
+    // -----------------------------
+    // DISPLAY TOP 3 CAREERS
+    // -----------------------------
+    careerResultsDiv.innerHTML = "";
+    top3.forEach((career,index) => {
+      let color = career.percent >= 70 ? "green" : career.percent >= 50 ? "orange" : "red";
+      careerResultsDiv.innerHTML += `
+        <div style="margin-bottom:20px;">
+          <b>${index+1}. ${career.name}</b> –
+          <span style="color:${color}; font-weight:bold;">${career.percent}% Match</span>
+          <div style="background:#ddd; border-radius:10px; overflow:hidden; margin:6px 0;">
+            <div style="width:${career.percent}%; height:12px; background:${color};"></div>
+          </div>
+          <p style="font-size:14px;">${careerExplanation[career.name]}</p>
+        </div>
+      `;
+    });
+
+    resultCard.style.display = "block";
+
+    // -----------------------------
+    // SHOW ROADMAP BUTTON
+    // -----------------------------
+  const top3Btn = document.getElementById("viewRoadmapBtn");
+const allBtn = document.getElementById("viewAllRoadmapBtn");
+
+// Show top 3 roadmap button
+top3Btn.onclick = () => {
+  const query = top3.map(c => `career=${encodeURIComponent(c.name)}`).join("&");
+  window.location.href = `roadmap.html?mode=top3&${query}`;
+};
+
+allBtn.onclick = () => {
+  window.location.href = `roadmap.html?mode=all`;
+};
+allBtn.style.display = "inline-block";
+
+// All careers button
+allBtn.onclick = () => {
+  const allCareers = Object.keys(careerExplanation)
+    .map(c => `career=${encodeURIComponent(c)}`)
+    .join("&");
+  window.location.href = `roadmap.html?${allCareers}`;
+};
+    // -----------------------------
+    // SAVE TO FIREBASE
+    // -----------------------------
+    try {
+      const userRef = ref(database, 'users/' + user.uid);
+      await update(userRef, {
+        name: user.displayName || "N/A",
+        email: user.email,
+        career: top3[0]?.name || "Not assigned",
+        top3: top3.map(c => ({career:c.name, percent:c.percent})),
+        timestamp: Date.now()
+      });
+      console.log("Top 3 recommendation saved to Firebase.");
+    } catch(error) {
+      console.error("Error saving to Firebase:", error);
+    }
+  });
+
+  // Reset button
+  resetBtn.addEventListener("click", () => {
+    document.getElementById("careerForm").reset();
+    careerResultsDiv.innerHTML = "";
+    resultCard.style.display = "none";
+    roadmapBtn.style.display = "none";
+  });
+
+  // Logout button
+  logoutBtn.addEventListener("click", async () => {
+    try {
+      await auth.signOut();
+      alert("Logged out successfully!");
+      window.location.href = "login.html";
+    } catch (error) {
+      console.error("Logout error:", error);
+    }
+  });
+});
+</script>
+</body>
+</html>
