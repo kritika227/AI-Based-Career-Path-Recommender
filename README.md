@@ -4,14 +4,14 @@
 
 This project helps users choose suitable career paths based on their interests and skills.
 
-# Technologies Used
+## Technologies Used
 
 - HTML
 - CSS
 - JavaScript
 - Firebase
 
-# Features
+## Features
 
 - Login & Registration
 - Career Recommendation
@@ -19,5 +19,6 @@ This project helps users choose suitable career paths based on their interests a
 - User Profile
 - Career Roadmap
 
-Developed By
+## Developed By
+
 Kritika Ghanate
